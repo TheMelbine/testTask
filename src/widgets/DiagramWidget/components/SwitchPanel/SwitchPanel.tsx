@@ -1,17 +1,17 @@
 import {SButtonWrapper, SDiagramControlButton, SPagination, SSwitchPanelWrapper} from "./SwitchPanel.styled";
 import {useContext, useMemo} from "react";
-import { DiagramContext } from "../../context";
+import {DiagramContext} from "../../context";
 
 
 const SwitchPanel = () => {
   const {data, selectedItem, setSelectedItem} = useContext(DiagramContext)!
 
-  const selectedItemIndex = useMemo(() =>{
-    if(!selectedItem){
+  const selectedItemIndex = useMemo(() => {
+    if (!selectedItem) {
       return 0
     }
     return data.findIndex((item) => item.id === selectedItem.id)
-  },[data, selectedItem])
+  }, [data, selectedItem])
   const onSelectedNext = () => {
 
     if (selectedItem !== null) {
@@ -36,7 +36,7 @@ const SwitchPanel = () => {
     }
   }
 
-  const getCountNumber = (number: number) =>{
+  const getCountNumber = (number: number) => {
     return number >= 10 ? number : `0${number}`
   }
 
